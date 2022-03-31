@@ -26,7 +26,21 @@ import whyBoloIcon3 from "./icons/Why-bolo-icon-3.png";
 import whyBoloIcon4 from "./icons/Why-bolo-icon-4.png";
 import whyBoloIcon5 from "./icons/Why-bolo-icon-5.png";
 import whyBoloIcon6 from "./icons/Why-bolo-icon-6.png";
+
+import webTechIcon1 from "./icons/web-tech-icon-1.png";
+import featuresIcon1 from "./icons/features-icon-1.png";
+import featuresIcon2 from "./icons/features-icon-2.png";
+import featuresIcon3 from "./icons/features-icon-3.png";
+import startYourPlaneIcon from "./icons/start-your-plan-icon.png";
+
 import { BiListUl } from "react-icons/bi";
+import {
+  FaTwitter,
+  FaPinterest,
+  FaFacebookF,
+  FaLinkedin,
+  FaInstagram,
+} from "react-icons/fa";
 
 // import external packages
 import React, { useEffect, useState } from "react";
@@ -36,6 +50,7 @@ import SwiperCore, { Pagination, Navigation } from "swiper/core";
 
 // import components
 import { DeveloperCard } from "./components/DevelopersCard";
+import { ScrollingText } from "./components/ScrollingText";
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -103,14 +118,21 @@ function App() {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          <div className="row  gy-4">
+          <div className="row">
             <div
-              className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+              className="col-lg-6 d-flex flex-column justify-content-center pt-lg-0" /* order-2 order-lg-1 */
               data-aos="fade-up"
               data-aos-delay="200"
             >
               <h1>
-                Instantly add <span className="purple-word">2 React</span>{" "}
+                Instantly add
+                <span
+                  className="purple-word"
+                  style={{ display: "inline-block" }}
+                >
+                  <ScrollingText style={{ display: "inline-block" }} />
+                </span>
+                <br />
                 developers to your team
               </h1>
               <p>
@@ -125,7 +147,7 @@ function App() {
               </div>
             </div>
             <div
-              className="col-lg-6 order-1 order-lg-2 hero-img"
+              className="col-lg-6 hero-img" /* order-1 order-lg-2  */
               data-aos="zoom-in"
               data-aos-delay="200"
             >
@@ -134,11 +156,11 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="developers">
+      <section className="developers pl-4">
         <div id="navbar-container" className="container">
           <div className="row justify-content-center">
             <div
-              className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-5 order-2 order-lg-1"
+              className="col-lg-6 col-8 d-flex flex-column justify-content-center pt-4 pt-lg-5"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -149,7 +171,7 @@ function App() {
               </p>
             </div>
             <div
-              className="col-lg-6 order-1 order-lg-2 hero-img"
+              className="col-lg-6 col-4 hero-img"
               data-aos="zoom-in"
               data-aos-delay="200"
             >
@@ -158,22 +180,32 @@ function App() {
           </div>
         </div>
         <Swiper
-          spaceBetween={30}
-          slidesPerView={"auto"}
-          navigation={true}
+          /* style={{ paddingLeft: "40px" }} */
+          className="slider"
+          spaceBetween={20}
+          //slidesPerView={"auto"}
+          //navigation={true}
           //pagination={{ clickable: true }}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
           breakpoints={{
             640: {
-              slidesPerView: 2,
+              slidesPerView: 1,
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 4,
+              slidesPerView: 1,
               spaceBetween: 40,
             },
+            991: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
             1024: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1300: {
               slidesPerView: 2.5,
               spaceBetween: 30,
             },
@@ -203,10 +235,13 @@ function App() {
             className="row justify-content-center align-items-between"
             data-aos="fade-up"
           >
-            <div className="col-lg-6">
+            <div className="col-lg-6 img-wrapper">
               <img src={image1} className="img-fluid" alt="" />
             </div>
-            <div className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0">
+            <div className="col-lg-6 d-flex flex-column justify-content-center pt-8 pt-lg-0">
+              <div className="icon-wrapper">
+                <img src={featuresIcon1} className="icon-image" alt="" />
+              </div>
               <h2>
                 Launch the personalized matching
                 <br />
@@ -220,9 +255,9 @@ function App() {
               </p>
 
               <div className="d-flex justify-content-center justify-content-lg-start">
-                <a href="#about" class="btn-signup scrollto">
+                {/* <a href="#about" class="btn-signup scrollto">
                   Sign Up for Free
-                </a>
+                </a> */}
                 <a href="#about" className="btn-hire-developer scrollto">
                   Hire developers
                 </a>
@@ -234,10 +269,13 @@ function App() {
             className="row justify-content-center align-items-between"
             data-aos="fade-up"
           >
-            <div className="col-lg-6 order-1 order-md-2">
+            <div className="col-lg-6 img-wrapper order-1 order-lg-2">
               <img src={image2} className="img-fluid" alt="" />
             </div>
-            <div className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-md-1">
+            <div className="col-lg-6 d-flex flex-column justify-content-center pt-8 pt-lg-0 order-2 order-lg-1">
+              <div className="icon-wrapper">
+                <img src={featuresIcon2} className="icon-image" alt="" />
+              </div>
               <h2>
                 48h to the verified shortlist of
                 <br />
@@ -253,9 +291,9 @@ function App() {
               </p>
 
               <div className="d-flex justify-content-center justify-content-lg-start">
-                <a href="#about" class="btn-signup scrollto">
+                {/* <a href="#about" class="btn-signup scrollto">
                   Sign Up for Free
-                </a>
+                </a> */}
                 <a href="#about" className="btn-hire-developer scrollto">
                   Hire developers
                 </a>
@@ -267,10 +305,13 @@ function App() {
             className="row justify-content-center align-items-between"
             data-aos="fade-up"
           >
-            <div className="col-lg-6">
+            <div className="col-lg-6 img-wrapper">
               <img src={image3} className="img-fluid" alt="" />
             </div>
-            <div className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0">
+            <div className="col-lg-6 d-flex flex-column justify-content-center pt-8 pt-lg-0">
+              <div className="icon-wrapper">
+                <img src={featuresIcon3} className="icon-image" alt="" />
+              </div>
               <h2>Get work started with confidence</h2>
               <p>
                 YouTeam automates contract signing and invoicing for
@@ -283,9 +324,9 @@ function App() {
               </p>
 
               <div className="d-flex justify-content-center justify-content-lg-start">
-                <a href="#about" class="btn-signup scrollto">
+                {/* <a href="#about" class="btn-signup scrollto">
                   Sign Up for Free
-                </a>
+                </a> */}
                 <a href="#about" className="btn-hire-developer scrollto">
                   Hire developers
                 </a>
@@ -406,56 +447,62 @@ function App() {
             className="row justify-content-center align-items-between"
             data-aos="fade-up"
           >
-            <div className="col-lg-6 order-1 order-md-2">
-              <img src={userSvg} className="img-fluid" alt="" />
-            </div>
-            <div className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-md-1">
+            <div className="col-lg-6 d-flex flex-column justify-content-center order-2 order-lg-1">
+              <div className="icon-wrapper">
+                <img src={webTechIcon1} className="icon-image" alt="" />
+              </div>
               <h2>
-                Web tecenology created millions of
-                <br />
-                sites worldwide by our developers.
+                Web tecenology created millions of sites worldwide by our
+                developers.
               </h2>
               <p>
-                It is a long established fact that a reader will be
-                <br />
-                distracted by the readable content of a page when
-                <br />
-                looking at its layout.
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
               </p>
 
               <div className="d-flex justify-content-center justify-content-lg-start">
-                <a href="#about" class="btn-signup scrollto">
+                {/* <a href="#about" class="btn-signup scrollto">
                   Sign Up for Free
-                </a>
+                </a> */}
                 <a href="#about" className="btn-hire-developer scrollto">
                   Hire developers
                 </a>
               </div>
             </div>
+            <div className="col-lg-6 d-flex flex-column justify-content-center order-1 order-lg-2">
+              <div className="img-wrapper">
+                <img src={userSvg} className="img-fluid" alt="" />
+              </div>
+            </div>
           </div>
           <div
-            className="row justify-content-center align-items-between"
+            className="row d-flex flex-row justify-content-center align-items-between"
             data-aos="fade-up"
           >
-            <div className="col-lg-6">
-              <img
-                style={{ zIndex: 1 }}
-                src={image4}
-                className="img-fluid"
-                alt=""
-              />
+            <div className="col-lg-6 d-flex flex-column justify-content-center">
+              <div className="img-wrapper">
+                <img
+                  style={{ zIndex: 1 }}
+                  src={image4}
+                  className="img-fluid"
+                  alt=""
+                />
+              </div>
             </div>
-            <div className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0">
-              <h2>Get work started with confidence</h2>
+            <div className="col-lg-6 d-flex flex-column justify-content-center">
+              <h2 className="second-header">
+                Get work started with confidence
+              </h2>
               <p>
                 “This theme aute irure dolor in reprehe erit in voluptate velit
                 esse cillum dolore eu fugiat nulla pariatur. Excepteur for the
                 life sint occaecat cupidatat non proident, sunt in culpa qui
-                officia de est laborum.” Sed ut perspiciatis unde omnis iste
+                officia de est laborum.”
+                {/*  Sed ut perspiciatis unde omnis iste
                 natus error sit voluptatem accusantium doloremque laudantium,
                 totam rem aperiam, eaque ipsa quae ab illo inventore
                 veritatis...
-                {/* et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
                 ipsam voluptatem quia voluptas sit aspernatur aut odit aut
                 fugit, sed quia consequuntur magni dolores eos qui ratione
                 voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
@@ -465,9 +512,9 @@ function App() {
               </p>
 
               <div className="d-flex justify-content-center justify-content-lg-start">
-                <a href="#about" class="btn-signup scrollto">
+                {/* <a href="#about" class="btn-signup scrollto">
                   Sign Up for Free
-                </a>
+                </a> */}
                 <a href="#about" className="btn-hire-developer scrollto">
                   Hire developers
                 </a>
@@ -486,7 +533,8 @@ function App() {
           data-aos-delay="100"
         >
           <div className="row justify-content-center">
-            <div className="col-xl-5">
+            <div className="col-xl-6">
+              <img src={startYourPlaneIcon} className="img-fluid" alt="" />
               <h2>Start your plan</h2>
               <p>
                 Tell us about your plans on a brief intro call and we’ll start
@@ -509,28 +557,20 @@ function App() {
           <div id="navbar-container" className="container">
             <div className="row">
               <div className="col-lg-5 col-md-6 footer-info">
-                {/* <h3>Bolo</h3> */}
+                <div className="logo">
+                  <img src={logo} />
+                </div>
                 <p>
-                  It is a long established fact that a reader will
-                  <br />
-                  be distracted by the readable content of a<br />
-                  page when looking at its layout. The point of
-                  <br />
-                  using Lorem Ipsum is that.
+                  It is a long established fact that a reader will be distracted
+                  by the readable content of a page when looking at its layout.
+                  The point of using Lorem Ipsum is that.
                 </p>
                 <div className="social-links mt-3">
-                  <a href="#" className="twitter">
-                    <i className="bx bxl-twitter"></i>
-                  </a>
-                  <a href="#" className="facebook">
-                    <i className="bx bxl-facebook"></i>
-                  </a>
-                  <a href="#" className="instagram">
-                    <i className="bx bxl-instagram"></i>
-                  </a>
-                  <a href="#" className="linkedin">
-                    <i className="bx bxl-linkedin"></i>
-                  </a>
+                  <FaFacebookF color="#1e4356" className="social-icons" />
+                  <FaTwitter color="#4e9eee" className="social-icons" />
+                  <FaPinterest color="#1e4356" className="social-icons" />
+                  <FaLinkedin color="#1e4356" className="social-icons" />
+                  <FaInstagram color="#1e4356" className="social-icons" />
                 </div>
               </div>
 
