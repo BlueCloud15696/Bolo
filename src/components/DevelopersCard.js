@@ -13,13 +13,13 @@ export const DeveloperCard = ({
   return (
     <div id="dev_card" className="icon-box">
       <div className="row justify-content-between">
-        <div className="col-md-8 col-lg-8" data-aos="fade-up">
+        <div className="col-8 col-lg-8" data-aos="fade-up">
           <img src={avatar} alt="" />
           <h3>{name}</h3>
           <h4>{field}</h4>
         </div>
 
-        <div className="col-md-4 col-lg-4" data-aos="fade-up">
+        <div className="col-4 col-lg-4" data-aos="fade-up">
           <ReactStars
             count={5}
             value={rating}
