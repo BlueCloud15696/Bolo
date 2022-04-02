@@ -586,21 +586,23 @@ h6,
 section {
   padding: 60px 0;
 }
-
 .section-bg {
   background-color: #ffffff;
 }
-
 .section-title {
   text-align: center;
   padding-bottom: 30px;
 }
 .section-title h2 {
-  font-size: 28px;
-  font-weight: 400;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
+  font-size: 30px;
+  line-height: 40px;
+  color: #222d39;
+  font-weight: 600;
+  font-family: "Poppins";
+  text-align: center;
 }
 .section-title h2::before {
   content: "";
@@ -623,7 +625,13 @@ section {
   left: calc(50% - 20px);
 }
 .section-title p {
-  margin-bottom: 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #677294;
+  font-weight: 300;
+  font-family: "Poppins";
+  text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -1630,5 +1638,362 @@ section {
 @media (max-width: 768px) {
   .why-bolo {
     text-align: center;
+  }
+}
+
+/*--------------------------------------------------------------
+# Our Services
+--------------------------------------------------------------*/
+.dev-list {
+  padding-bottom: 20px;
+}
+.dev-list .icon-box {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 40px 0;
+  background: #fff;
+  box-shadow: 0 5px 26px 0 rgba(68, 88, 144, 0.14);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  border: 1px solid #fff;
+}
+.dev-list .icon img {
+  margin: 0 auto 20px auto;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+}
+.dev-list .title {
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  font-weight: 700;
+  font-family: "Poppins";
+  text-align: center;
+  margin-bottom: 2px;
+}
+.dev-list .sub-title {
+  font-size: 16px;
+  line-height: 24px;
+  color: #051441;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-align: center;
+  margin-bottom: 15px;
+}
+.dev-list .title a {
+  color: #111;
+}
+.dev-list .description {
+  font-size: 16px;
+  line-height: 28px;
+  color: #677294;
+  font-weight: 300;
+  font-family: "Poppins";
+  text-align: center;
+  margin-bottom: 0;
+}
+.dev-list #langueges {
+  margin: 30px 40px 0 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.dev-list #langueges h5 {
+  font-size: 14px;
+  line-height: 24px;
+  color: #000000;
+  font-weight: 700;
+  font-family: "Poppins";
+  text-align: center;
+}
+.dev-list .hourly-rate {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 0px;
+}
+.dev-list .hourly-rate h3 {
+  font-size: 16px;
+  line-height: 24px;
+  color: #051441;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-align: center;
+  margin-bottom: 5px;
+}
+.dev-list .rating {
+  margin: 5px 0 10px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.dev-list .rating h3 {
+  font-size: 16px;
+  line-height: 24px;
+  color: #051441;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-align: center;
+  margin: 0px 20px 0 20px;
+}
+
+.dev-list .rating .icon {
+  font-size: 16px;
+  line-height: 24px;
+  color: #051441;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-align: center;
+  margin: 0px 20px 0 20px;
+}
+
+.dev-list #dev-list-flters {
+  padding: 0;
+  margin: 0 0 35px 0;
+  list-style: none;
+  text-align: center;
+}
+.dev-list #dev-list-flters li {
+  cursor: pointer;
+  margin: 0 20px 5px 20px;
+  display: inline-block;
+  padding: 0 4px 6px 4px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  color: #444;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 2px solid #fff;
+  font-family: "Poppins";
+}
+.dev-list #dev-list-flters li:hover,
+.dev-list #dev-list-flters li.filter-active {
+  border-color: #68a4c4;
+  color: #68a4c4;
+}
+
+/*--------------------------------------------------------------
+# quations
+--------------------------------------------------------------*/
+#question-wrapper .container-fluid .row {
+  min-height: 100vh;
+}
+#question-wrapper .container-fluid .row #section-1 {
+  min-height: 100vh;
+}
+#question-wrapper .container-fluid .row #section-2 {
+  min-height: 100vh;
+}
+#question-wrapper #section-1 {
+  background-image: linear-gradient(90deg, #437be5 0%, #21d3fd 100%);
+}
+#question-wrapper #section-1 p {
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Poppins";
+  text-align: center;
+  max-width: 500px;
+}
+#question-wrapper #section-1 .icon-main {
+  margin-top: 40%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 87px;
+  height: 87px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin-bottom: 30px;
+  transition: 0.5s;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px 0 25px rgba(0, 0, 0, 0.15);
+}
+#question-wrapper #section-1 .icon-main img {
+  width: 27px;
+  height: 30px;
+}
+#question-wrapper #section-1 .copy-right-wrapper #copy-right {
+  margin-bottom: 10px;
+  justify-self: end;
+
+  font-size: 14px;
+  line-height: 40px;
+  color: #ffffff;
+  font-weight: 300;
+  font-family: "Poppins";
+}
+#question-wrapper #section-2 {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+#question-wrapper #section-2 h2 {
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  font-weight: 600;
+  font-family: "Poppins";
+  text-align: left;
+}
+#question-wrapper #section-2 .form-check {
+  margin-top: 12px;
+}
+#question-wrapper #section-2 .form-check-label {
+  font-size: 16px;
+  line-height: 30px;
+  color: #000000;
+  font-weight: 400;
+  font-family: "Poppins";
+  text-align: center;
+}
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+#question-wrapper #section-2 hr {
+  margin-top: 35px;
+}
+#question-wrapper #section-2 .button-wrapper {
+}
+#question-wrapper #section-2 .btn-prev {
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-align: center;
+  border-radius: 4px;
+  filter: drop-shadow(0px 2px 2.5px rgba(63, 54, 132, 0.2));
+  background-image: linear-gradient(90deg, #ef2160 0%, #f90d71 100%);
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 6px 14px;
+  transition: 0.5s;
+  max-width: 150px;
+  cursor: pointer;
+  margin: 10px;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+#question-wrapper #section-2 .btn-next {
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-align: center;
+  border-radius: 4px;
+  filter: drop-shadow(0px 2px 2.5px rgba(63, 54, 132, 0.2));
+  background-image: linear-gradient(90deg, #437be5 0%, #2bbdfd 100%);
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 6px 14px;
+  transition: 0.5s;
+  max-width: 150px;
+  cursor: pointer;
+  margin: 10px;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+#question-wrapper #section-3 form {
+  max-width: 500px;
+}
+#question-wrapper #section-3 h2 {
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  font-weight: 600;
+  font-family: "Poppins";
+  text-align: left;
+}
+#question-wrapper #section-3 .form-group {
+  margin-left: 240px;
+  margin-right: 240px;
+  margin-top: 20px;
+  width: 100%;
+}
+#question-wrapper #section-3 .form-label {
+  font-size: 14px;
+  line-height: 26px;
+  color: #161341;
+  font-weight: 550;
+  font-family: "Poppins";
+}
+#question-wrapper #section-3 .btn-next {
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-align: center;
+  border-radius: 4px;
+  filter: drop-shadow(0px 2px 2.5px rgba(63, 54, 132, 0.2));
+  background-image: linear-gradient(90deg, #437be5 0%, #2bbdfd 100%);
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 16px 32px;
+  transition: 0.5s;
+  margin-left: 140px;
+  margin-right: 140px;
+  margin-top: 20px;
+  width: 100%;
+  cursor: pointer;
+  margin: 30px;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+#question-wrapper #section-3 .form-control::placeholder {
+  font-size: 15px;
+  /* line-height: 26px; */
+  color: #9ca3b9;
+  font-weight: 300;
+  font-family: "Poppins";
+}
+#question-wrapper #section-3 .form-control {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2p;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+@media (max-width: 1400px) {
+  body #question-wrapper #section-1 p {
+    font-size: 15px;
+    line-height: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    font-family: "Poppins";
+    text-align: center;
+  }
+  body #question-wrapper #section-1 .icon-main {
+    margin-top: 200px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    transition: 0.5s;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0px 0 25px rgba(0, 0, 0, 0.15);
+  }
+  body #question-wrapper #section-1 .icon-main img {
+    font-size: 24px;
+    line-height: 0;
   }
 }
