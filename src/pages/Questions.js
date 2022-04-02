@@ -1,0 +1,180 @@
+import { useState } from "react";
+import QuestionComponent from "../components/Questions/Question1";
+import LastQuestionComponet from "../components/Questions/Question2";
+const radioOptions = [
+  {
+    radioOptions: [
+      { label: "Less than 10", value: "less-than-10" },
+      { label: "11 - 50", value: "11-50" },
+      { label: "51 - 200", value: "51-200" },
+      { label: "201 - 1000", value: "201-1000" },
+      { label: "1001 - 5000", value: "1001-5000" },
+    ],
+    mainTitle:
+      "Thanks for trust hiring through bolo before we started we’d like to ask you questions to better understand your bussiness",
+    title: "How many people are employed at your company",
+    nextLabel: "Get started",
+    //prviousLabel: "Prev",
+  },
+  {
+    radioOptions: [
+      { label: "Developers", value: "Developers" },
+      { label: "Designers", value: "Designers" },
+      { label: "Project Managers", value: "Project-Managers" },
+      { label: "Product Managers", value: "Product-Managers" },
+      { label: "Finance Experts", value: "Finance-Experts" },
+    ],
+    mainTitle:
+      "Thanks for trust hiring through bolo before we started we’d like to ask you questions to better understand your bussiness",
+    title: "What role would you like to hire?",
+    nextLabel: "Next",
+    prviousLabel: "Prev",
+  },
+  {
+    radioOptions: [
+      { label: "New idea or project", value: "new" },
+      {
+        label: "Existing project that needs more resources",
+        value: "existing",
+      },
+      {
+        label: "Ongoing assistance or consultation",
+        value: "ongoing",
+      },
+      {
+        label: "None of the above, i'm just looking to learn more about Toptal",
+        value: "none",
+      },
+    ],
+    mainTitle:
+      "Thanks for trust hiring through bolo before we started we’d like to ask you questions to better understand your bussiness",
+    title: "What type of project are you hiring for?",
+    nextLabel: "Next",
+    prviousLabel: "Prev",
+  },
+  {
+    radioOptions: [
+      { label: "Less than 1 week", value: "less-than-1-week" },
+      { label: "1 to 4 weeks", value: "1-to-4-weeks" },
+      { label: "1 to 3 months", value: "1-to-3-months" },
+      { label: "3 to 6 months", value: "3-to-6-months" },
+      { label: "Longer than 6 months", value: "longer-than-6-months" },
+    ],
+    mainTitle:
+      "Thanks for trust hiring through bolo before we started we’d like to ask you questions to better understand your bussiness",
+    title: "How long do you need the developer?",
+    nextLabel: "Next",
+    prviousLabel: "Prev",
+  },
+  {
+    radioOptions: [
+      { label: "Full time (40 or more hrs/week)", value: "full-time" },
+      { label: "Part time (Less than 40 hrs/week)", value: "part-time" },
+      { label: "Hourly", value: "hourly" },
+      { label: "I'll decide later", value: "later" },
+    ],
+    mainTitle:
+      "Thanks for trust hiring through bolo before we started we’d like to ask you questions to better understand your bussiness",
+    title: "What level of time commitment will you require from the developer?",
+    nextLabel: "Next",
+    prviousLabel: "Prev",
+  },
+  {
+    radioOptions: [
+      { label: "Immediately", value: "immediately" },
+      { label: "In 1 to 2 weeks", value: "in-1-to-2-weeks" },
+      { label: "More than 2 weeks from now", value: "more-than-2-weeks" },
+      { label: "I'll decide later", value: "later" },
+    ],
+    mainTitle:
+      "Thanks for trust hiring through bolo before we started we’d like to ask you questions to better understand your bussiness",
+    title: "When do you need the developer to start?",
+    nextLabel: "Next",
+    prviousLabel: "Prev",
+  },
+  {
+    radioOptions: [
+      { label: "yes", value: "yes" },
+      { label: "No", value: "no" },
+      { label: "I'm not sure", value: "not-sure" },
+    ],
+    mainTitle:
+      "Thanks for trust hiring through bolo before we started we’d like to ask you questions to better understand your bussiness",
+    title: "Are you open to working with a remote developer?",
+    nextLabel: "Next",
+    prviousLabel: "Prev",
+  },
+  {
+    radioOptions: [
+      { label: "Less than $70/hr", value: "less-than-70" },
+      { label: "$70 - $90/hr", value: "70-90" },
+      { label: "$91 - $110/hr", value: "91-110" },
+      { label: "More than $110/hr", value: "more-than-110" },
+      { label: "Not sure on budget yes", value: "not-sure" },
+    ],
+    mainTitle:
+      "Thanks for trust hiring through bolo before we started we’d like to ask you questions to better understand your bussiness",
+    title: "What is your budget for this role?",
+    nextLabel: "Next",
+    prviousLabel: "Prev",
+  },
+];
+
+const initialState = {
+  question1: { label: "Less than 10", value: "less-than-10" },
+  question2: { label: "Developers", value: "Developers" },
+  question3: { label: "New idea or project", value: "new" },
+  question4: { label: "Less than 1 week", value: "less-than-1-week" },
+  question5: { label: "Full time (40 or more hrs/week)", value: "full-time" },
+  question6: { label: "Immediately", value: "immediately" },
+  question7: { label: "yes", value: "yes" },
+  question8: { label: "Less than $70/hr", value: "less-than-70" },
+};
+
+const Question = () => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [formPage, setFormPage] = useState(false);
+  const [values, setValues] = useState(initialState);
+  const onChange = (index, value) => {
+    setValues({
+      ...values,
+      [`question${index + 1}`]: value,
+    });
+  };
+
+  const onClickNext = () => {
+    if (currentPage < radioOptions.length - 1) {
+      setCurrentPage(currentPage + 1);
+    } else {
+      setFormPage(true);
+      console.log("last result", values);
+    }
+  };
+  const onClickPrev = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  return (
+    <>
+      {formPage ? (
+        <LastQuestionComponet />
+      ) : (
+        <QuestionComponent
+          radioOptions={radioOptions[currentPage].radioOptions}
+          mainTitle={radioOptions[currentPage].mainTitle}
+          title={radioOptions[currentPage].title}
+          nextLabel={radioOptions[currentPage].nextLabel}
+          prviousLabel={radioOptions[currentPage].prviousLabel}
+          value={values[`question${currentPage + 1}`]}
+          onChange={(value) => {
+            onChange(currentPage, value);
+          }}
+          onClickNext={onClickNext}
+          onClickPrev={onClickPrev}
+        />
+      )}
+    </>
+  );
+};
+export default Question;
