@@ -1,6 +1,10 @@
 import { useState } from "react";
 import QuestionComponent from "../components/Questions/Question1";
 import LastQuestionComponet from "../components/Questions/Question2";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../constants/constants";
+
 const radioOptions = [
   {
     radioOptions: [
@@ -131,15 +135,117 @@ const initialState = {
   question8: { label: "Less than $70/hr", value: "less-than-70" },
 };
 
+const getAnswer = (values) => {
+  const result = Object.keys(values).map((key, index) => {
+    return { question: radioOptions[index].title, answer: values[key].label };
+  });
+  return result;
+};
+
 const Question = () => {
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
   const [formPage, setFormPage] = useState(false);
   const [values, setValues] = useState(initialState);
+  const [formData, setFormData] = useState({
+    email: "",
+    company_name: "",
+    contact_name: "",
+    phone: "",
+    answers: [],
+  });
+  const onChangeFormData = (name, value) => {
+    setFormData({
+      ...formData,
+      [name]: value.target.value,
+    });
+  };
   const onChange = (index, value) => {
     setValues({
       ...values,
       [`question${index + 1}`]: value,
     });
+  };
+
+  const [formerrors, setFormErrors] = useState({});
+  const validate = () => {
+    console.log("Validate the form....");
+    let errors = {};
+
+    //email field
+    if (!formData.email) {
+      errors.email = "Email address is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Email address is invalid";
+    }
+
+    //company name field
+    if (!formData.company_name) {
+      errors.company_name = "Company name is required";
+    }
+
+    //contact name field
+    if (!formData.contact_name) {
+      errors.contact_name = "Contact name is required";
+    }
+
+    setFormErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const [isSubmiting, setIsSubmiting] = useState(false);
+  const [submitResult, setSubmitResult] = useState({
+    state: "success",
+    message: "",
+  });
+  const onSubmit = () => {
+    if (validate()) {
+      setSubmitResult({
+        state: "success",
+        message: "",
+      });
+      setIsSubmiting(true);
+      const answers = getAnswer(values);
+      const finalData = {
+        ...formData,
+        answers: answers,
+      };
+      axios
+        .post(`${BASE_URL}/api/questions/`, finalData, {
+          headers: {
+            accessTokenOcr: localStorage.getItem("accessTokenBolo")
+              ? localStorage.getItem("accessTokenBolo")
+              : null,
+          },
+        })
+        .then((res) => {
+          if (!res.data.error) {
+            setSubmitResult({
+              state: "success",
+              message: "Form submitted successfully!",
+            });
+            setIsSubmiting(false);
+            navigate("/");
+          } else {
+            setSubmitResult({
+              state: "error",
+              message: "Something went wrong while submiting form!",
+            });
+            setIsSubmiting(false);
+          }
+        })
+        .catch((error) => {
+          setSubmitResult({
+            state: "error",
+            message: "Something went wrong while submitting form!",
+          });
+          setIsSubmiting(false);
+        });
+    }
   };
 
   const onClickNext = () => {
@@ -158,7 +264,13 @@ const Question = () => {
   return (
     <>
       {formPage ? (
-        <LastQuestionComponet />
+        <LastQuestionComponet
+          onChangeFormData={onChangeFormData}
+          onSubmit={onSubmit}
+          isSubmiting={isSubmiting}
+          submitResult={submitResult}
+          formerrors={formerrors}
+        />
       ) : (
         <QuestionComponent
           radioOptions={radioOptions[currentPage].radioOptions}
