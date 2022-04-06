@@ -2,7 +2,13 @@ import { useState } from "react";
 import icon1 from "../../img/logo-only.png";
 import IntlTelInput from "react-bootstrap-intl-tel-input";
 
-const Question = () => {
+const Question = ({
+  onChangeFormData,
+  onSubmit,
+  isSubmiting,
+  submitResult,
+  formerrors,
+}) => {
   return (
     <div id="question-wrapper">
       <div className="container-fluid">
@@ -45,7 +51,16 @@ const Question = () => {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="assem.yogo@gmail.com"
+                  onChange={(value) => onChangeFormData("email", value)}
                 />
+                {formerrors.email && (
+                  <p
+                    className="text-danger"
+                    style={{ marginBottom: "0px", marginTop: "5Px" }}
+                  >
+                    {formerrors.email}
+                  </p>
+                )}
               </div>
               <div className="form-group">
                 <label className="form-label" for="exampleInputEmail1">
@@ -57,7 +72,16 @@ const Question = () => {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="vision best"
+                  onChange={(value) => onChangeFormData("company_name", value)}
                 />
+                {formerrors.company_name && (
+                  <p
+                    className="text-danger"
+                    style={{ marginBottom: "0px", marginTop: "5Px" }}
+                  >
+                    {formerrors.company_name}
+                  </p>
+                )}
               </div>
               <div className="form-group">
                 <label className="form-label" for="exampleInputEmail1">
@@ -69,7 +93,16 @@ const Question = () => {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="assem mohamed elsukfy"
+                  onChange={(value) => onChangeFormData("contact_name", value)}
                 />
+                {formerrors.contact_name && (
+                  <p
+                    className="text-danger"
+                    style={{ marginBottom: "0px", marginTop: "5Px" }}
+                  >
+                    {formerrors.contact_name}
+                  </p>
+                )}
               </div>
               <div className="form-group">
                 <label className="form-label" for="exampleInputEmail1">
@@ -81,16 +114,32 @@ const Question = () => {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="+1 201-5555-123"
+                  onChange={(value) => onChangeFormData("phone", value)}
                 />
+                {formerrors.phone && (
+                  <p
+                    className="text-danger"
+                    style={{ marginBottom: "0px", marginTop: "5Px" }}
+                  >
+                    {formerrors.phone}
+                  </p>
+                )}
               </div>
-              {/* <IntlTelInput
-                preferredCountries={["US", "GB"]}
-                defaultCountry={"US"}
-                defaultValue={"+1 555-555-5555"}
-                //onChange={(data) => this.onChangeHandler(data)}
-              /> */}
-              <a /* onClick={onClickPrev} */ className="btn-next">
-                Contact with talent
+
+              {submitResult.message && submitResult.message !== "" && (
+                <p
+                  className={
+                    submitResult.state === "success"
+                      ? "text-success"
+                      : "text-danger"
+                  }
+                  style={{ marginBottom: "5px", marginTop: "15Px" }}
+                >
+                  {submitResult.message}
+                </p>
+              )}
+              <a onClick={onSubmit} className="btn-next">
+                {isSubmiting ? "Form submiting" : "Contact with talent"}
               </a>
             </form>
 
