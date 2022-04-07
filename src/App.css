@@ -739,12 +739,12 @@ section {
 }
 #dev_card .experience-wrapper .languege-icon h5 {
   font-size: 10px;
-  line-height: 24px;
+  line-height: 15px;
   color: #ffffff;
   font-weight: 500;
   font-family: "Poppins";
   text-align: center;
-  padding: 5px 12px;
+  /* padding: 5px 12px; */
 }
 #dev_card .experience-wrapper h3 {
   margin-left: 20px;
