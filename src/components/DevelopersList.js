@@ -1,9 +1,59 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dev1 from "../img/developers/dev2.png";
 import { FaStar, FaStarHalfAlt, FaStarHalf } from "react-icons/fa";
+import axios from "axios";
+import { BASE_URL } from "../constants/constants";
 
 const DevelopersList = () => {
   const [selectedCategory, setSelectedCategory] = useState("javascript");
+
+  const [developers, setDevelopers] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [loadingStatus, setLoadingStatus] = useState({
+    state: "success",
+    message: "",
+  });
+  console.log("developers", developers);
+  useEffect(() => {
+    setLoadingStatus({
+      state: "success",
+      message: "",
+    });
+    setLoading(true);
+    axios
+      .get(`${BASE_URL}/api/developers/`, {
+        headers: {
+          accessTokenOcr: localStorage.getItem("accessTokenBolo")
+            ? localStorage.getItem("accessTokenBolo")
+            : null,
+        },
+      })
+      .then((res) => {
+        if (!res.data.error) {
+          setDevelopers(res.data.results.users);
+          setLoadingStatus({
+            state: "success",
+            message: "Developers loaded successfully!",
+          });
+          setLoading(false);
+          //navigate("/");
+        } else {
+          setLoadingStatus({
+            state: "error",
+            message: "Something went wrong while loading developers!",
+          });
+          setLoading(false);
+        }
+      })
+      .catch((error) => {
+        setLoadingStatus({
+          state: "error",
+          message: "Something went wrong while submitting form!",
+        });
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <section className="dev-list">
       <div id="navbar-container" className="container">
@@ -65,40 +115,38 @@ const DevelopersList = () => {
             </ul>
           </div>
         </div>
-        <div className="row">
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((value) => (
-            <div
-              className="col-md-6 col-lg-4 d-flex align-items-stretch"
-              data-aos="fade-up"
-            >
-              <div className="icon-box">
-                <div className="hourly-rate">
-                  <h3>$15/hr</h3>
-                </div>
-                <div className="icon">
-                  <img src={dev1} />
-                </div>
-                <h3 className="title">Bailey Wonger</h3>
-                <h4 className="sub-title">Javascript</h4>
-                <div className="rating">
-                  <FaStar color="#d3c200" className="icon" />
-                  <span>(5/5)</span>
-                  <h3>131 Jobs</h3>
-                </div>
-                <p className="description">
-                  Brolly off his nut A bit of how's your father chancer in my
-                  flat chinwag bog skive.
-                </p>
-                <div id="langueges" /*  className="row" */>
-                  <h5>Html</h5>
-                  <h5>Css</h5>
-                  <h5>Javascript</h5>
-                  <h5>Jquery</h5>
+        {developers && (
+          <div className="row">
+            {developers.docs.map((value) => (
+              <div
+                className="col-md-6 col-lg-4 d-flex align-items-stretch"
+                data-aos="fade-up"
+              >
+                <div className="icon-box">
+                  <div className="hourly-rate">
+                    <h3>$15/hr</h3>
+                  </div>
+                  <div className="icon">
+                    <img src={`${BASE_URL}${value.avatar}`} />
+                  </div>
+                  <h3 className="title">{value.name}</h3>
+                  <h4 className="sub-title">{value.profession}</h4>
+                  <div className="rating">
+                    <FaStar color="#d3c200" className="icon" />
+                    <span>{`(${value.rating}/5)`}</span>
+                    <h3>{`${value.numJob} Jobs`}</h3>
+                  </div>
+                  <p className="description">{value.description}</p>
+                  <div id="langueges">
+                    {value.languages.map((languege) => (
+                      <h5>{languege}</h5>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
