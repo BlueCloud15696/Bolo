@@ -31,7 +31,14 @@ export const DeveloperCard = ({
       </div>
       <p>{description}</p>
       <div className="experience-wrapper">
-        <div className="icon">
+        <div
+          className="icon"
+          styles={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <h5>{experienceYear}</h5>
         </div>
         <h3>{field2}</h3>

@@ -44,6 +44,9 @@ import { Link, Outlet } from "react-router-dom";
 import { DeveloperCard } from "../components/DevelopersCard";
 import { ScrollingText } from "../components/ScrollingText";
 
+import axios from "axios";
+import { BASE_URL } from "../constants/constants";
+
 SwiperCore.use([Pagination, Navigation]);
 
 function Home() {
@@ -56,6 +59,53 @@ function Home() {
     window.removeEventListener("scroll", onScroll);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const [developers, setDevelopers] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [loadingStatus, setLoadingStatus] = useState({
+    state: "success",
+    message: "",
+  });
+  console.log("developers", developers);
+  useEffect(() => {
+    setLoadingStatus({
+      state: "success",
+      message: "",
+    });
+    setLoading(true);
+    axios
+      .get(`${BASE_URL}/api/developers/`, {
+        headers: {
+          accessTokenOcr: localStorage.getItem("accessTokenBolo")
+            ? localStorage.getItem("accessTokenBolo")
+            : null,
+        },
+      })
+      .then((res) => {
+        if (!res.data.error) {
+          setDevelopers(res.data.results.users);
+          setLoadingStatus({
+            state: "success",
+            message: "Developers loaded successfully!",
+          });
+          setLoading(false);
+          //navigate("/");
+        } else {
+          setLoadingStatus({
+            state: "error",
+            message: "Something went wrong while loading developers!",
+          });
+          setLoading(false);
+        }
+      })
+      .catch((error) => {
+        setLoadingStatus({
+          state: "error",
+          message: "Something went wrong while submitting form!",
+        });
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -214,22 +264,25 @@ function Home() {
             },
           }}
         >
-          {[0, 2, 3, 4, 3, 5, 4].map((value) => {
-            return (
-              <SwiperSlide>
-                <DeveloperCard
-                  avatar={dev1}
-                  name="Bailey Wonger"
-                  field="web designer"
-                  rating={5}
-                  description="senior web designer focus on wordpress worked for several people and companies"
-                  experienceYear={12}
-                  field2="senior web designer"
-                  langueges={[{ name: "php" }]}
-                />
-              </SwiperSlide>
-            );
-          })}
+          {developers &&
+            /* [0, 2, 3, 4, 3, 5, 4] */ developers.docs.map((value) => {
+              return (
+                <SwiperSlide>
+                  <DeveloperCard
+                    avatar={`${BASE_URL}${value.avatar}`}
+                    name={value.name}
+                    field={value.profession}
+                    rating={value.rating}
+                    description={value.description}
+                    experienceYear={value.experienceYear}
+                    field2="Experience Years"
+                    langueges={value.languages.map((languege) => {
+                      return { name: languege };
+                    })}
+                  />
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </section>
       <section className="features">
