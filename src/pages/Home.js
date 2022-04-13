@@ -39,6 +39,7 @@ import ReactStars from "react-rating-stars-component";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Navigation } from "swiper/core";
 import { Link, Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // import components
 import { DeveloperCard } from "../components/DevelopersCard";
@@ -46,10 +47,28 @@ import { ScrollingText } from "../components/ScrollingText";
 
 import axios from "axios";
 import { BASE_URL } from "../constants/constants";
+import {
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  Form,
+  Row,
+  Col,
+  FormGroup,
+  Label,
+  Input,
+  FormFeedback,
+  Toast,
+  ToastHeader,
+  ToastBody,
+} from "reactstrap";
 
 SwiperCore.use([Pagination, Navigation]);
 
-function Home() {
+function Home({ setAuthState, authState, logout }) {
+  const navigate = useNavigate();
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -108,6 +127,131 @@ function Home() {
       });
   }, []);
 
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const onChangeFormData = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const [formerrors, setFormErrors] = useState({});
+  const validate = () => {
+    console.log("Validate the form....");
+    let errors = {};
+
+    //email field
+    if (!formData.email) {
+      errors.email = "Email address is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Email address is invalid";
+    }
+
+    //password field
+    if (!formData.password) {
+      errors.password = "Password is required";
+    }
+
+    setFormErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const [signinModal, setSigninModal] = useState(false);
+  const onCloseSigninModal = () => {
+    setSigninModal(false);
+  };
+  const onClickSignIn = () => {
+    if (authState && authState.role === "ADMIN") {
+      logout();
+    } else {
+      onOpenSigninModal();
+    }
+  };
+  const onOpenSigninModal = () => {
+    setSigninModal(true);
+  };
+  const [signingIn, setSigningIn] = useState(false);
+  const [signingStatus, setSigningStatus] = useState({
+    state: "success",
+    message: "",
+  });
+  const onClickSignin = () => {
+    if (validate()) {
+      setSigningStatus({
+        state: "success",
+        message: "",
+      });
+      setSigningIn(true);
+      axios
+        .post(
+          `${BASE_URL}/api/auth/login`,
+          { email: formData.email, password: formData.password },
+          {
+            headers: {
+              accessTokenOcr: localStorage.getItem("accessTokenBolo")
+                ? localStorage.getItem("accessTokenBolo")
+                : null,
+            },
+          }
+        )
+        .then((res) => {
+          if (!res.data.error) {
+            //setDevelopers(res.data.results.users);
+            console.log("res.data", res.data);
+            localStorage.setItem(
+              "accessTokenBolo",
+              res.data.results.user.token
+            );
+
+            const user = res.data.results.user;
+            if (user) {
+              setAuthState({
+                role: user.role,
+                email: user.email,
+                uid: user._id,
+                email_verified: user.email_verified,
+                status: true,
+              });
+            } else {
+              setAuthState({
+                role: null,
+                email: "",
+                uid: 0,
+                email_verified: null,
+                status: false,
+              });
+            }
+
+            setSigningStatus({
+              state: "success",
+              message: "Signed in successfully!",
+            });
+            setSigningIn(false);
+            navigate("/admin");
+          } else {
+            setSigningStatus({
+              state: "error",
+              message: "Something went wrong while loading developers!",
+            });
+            setSigningIn(false);
+          }
+        })
+        .catch((error) => {
+          setSigningStatus({
+            state: "error",
+            message: "Something went wrong while signing in!",
+          });
+          setSigningIn(false);
+        });
+    }
+  };
+
   return (
     <div>
       <header
@@ -132,28 +276,46 @@ function Home() {
                 </Link>
               </li>
               <li>
-                <Link key={"whyus"} to="#">
+                <Link
+                  key={"whyus"}
+                  onClick={() => window.location.replace("/#why-bolo")}
+                  to="#"
+                >
                   Why us
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link key={"vetting"} to="#">
                   Vetting process
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link key={"talent"} to="/talent-pool">
                   Talent pool
                 </Link>
               </li>
-              <li>
-                <Link key={"company"} to="#">
+              {/* <li>
+                <Link key={"company"} onClick={() => window.location.replace("/#why-bolo")} to="#">
                   Company
                 </Link>
-              </li>
+              </li> */}
+              {authState && authState.role === "ADMIN" && (
+                <li>
+                  <Link key={"company"} to="/admin">
+                    Admin page
+                  </Link>
+                </li>
+              )}
               <li className="btn-login-wrapper">
-                <Link key={"btn-login"} className="btn-login" to="#">
-                  Login
+                <Link
+                  key={"btn-login"}
+                  className="btn-login"
+                  onClick={onClickSignIn}
+                  to="#"
+                >
+                  {authState && authState.role === "ADMIN"
+                    ? "Sign Out"
+                    : "Login"}
                 </Link>
               </li>
             </ul>
@@ -213,7 +375,7 @@ function Home() {
         <div id="navbar-container" className="container">
           <div className="row justify-content-center">
             <div
-              className="col-lg-6 col-8 d-flex flex-column justify-content-center pt-4 pt-lg-5"
+              className="col-lg-6 col-12 d-flex flex-column justify-content-center pt-4 pt-lg-5"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -400,7 +562,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="why-bolo">
+      <section id="why-bolo" className="why-bolo">
         <div id="navbar-container" className="container">
           <div className="row no-gutters">
             <div className="col-xl-8 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
@@ -713,6 +875,58 @@ function Home() {
           </div>
         </div>
       </footer>
+      <Modal centered={true} isOpen={signinModal} toggle={onCloseSigninModal}>
+        <ModalHeader toggle={onCloseSigninModal}>
+          Login to admin account
+        </ModalHeader>
+        <ModalBody>
+          <Form>
+            <Row form>
+              <Col md={12}>
+                <FormGroup>
+                  <Label for="exampleEmail">Email</Label>
+                  <Input
+                    id="exampleEmail"
+                    name="email"
+                    placeholder="Enter your email"
+                    type="email"
+                    onChange={onChangeFormData}
+                    invalid={formerrors.email && formerrors.email !== ""}
+                  />
+                  {formerrors.email && formerrors.email !== "" && (
+                    <FormFeedback>{formerrors.email}</FormFeedback>
+                  )}
+                </FormGroup>
+              </Col>
+              <Col md={12}>
+                <FormGroup>
+                  <Label for="examplePassword">Password</Label>
+                  <Input
+                    id="examplePassword"
+                    name="password"
+                    placeholder="Enter password"
+                    type="password"
+                    onChange={onChangeFormData}
+                    invalid={formerrors.password && formerrors.password !== ""}
+                  />
+                  {formerrors.password && formerrors.password !== "" && (
+                    <FormFeedback>{formerrors.password}</FormFeedback>
+                  )}
+                </FormGroup>
+              </Col>
+            </Row>
+          </Form>
+          {signingStatus.message && signingStatus.message !== "" && (
+            <p style={{ color: "red" }}>{signingStatus.message}</p>
+          )}
+        </ModalBody>
+        <ModalFooter>
+          <Button disabled={signingIn} color="primary" onClick={onClickSignin}>
+            {signingIn ? "Signing In" : "Sign In"}
+          </Button>{" "}
+          <Button onClick={onCloseSigninModal}>Cancel</Button>
+        </ModalFooter>
+      </Modal>
     </div>
   );
 }
