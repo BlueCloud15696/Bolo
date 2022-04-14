@@ -18,7 +18,7 @@ const Question = ({
         <div className="row">
           <div
             id="section-1"
-            className="col-lg-6 d-flex flex-column align-items-center"
+            className="col-lg-6 d-flex flex-column align-items-center order-2 order-lg-1"
             data-aos="fade-up"
           >
             <div class="icon-main">
@@ -37,7 +37,7 @@ const Question = ({
 
           <div
             id="section-2"
-            className="col-lg-6 d-flex flex-column justify-content-center align-items-left"
+            className="col-lg-6 d-flex flex-column justify-content-center align-items-left order-1 order-lg-2"
             data-aos="fade-up"
           >
             <h2>{title}</h2>
