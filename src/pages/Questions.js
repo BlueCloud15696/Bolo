@@ -4,6 +4,7 @@ import LastQuestionComponet from "../components/Questions/Question2";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../constants/constants";
+import ConfirmationPage from "../components/Questions/ConfirmationPage";
 
 const radioOptions = [
   {
@@ -146,6 +147,7 @@ const Question = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(0);
   const [formPage, setFormPage] = useState(false);
+  const [confirmationPage, setConfirmationPage] = useState(false);
   const [values, setValues] = useState(initialState);
   const [formData, setFormData] = useState({
     email: "",
@@ -229,7 +231,7 @@ const Question = () => {
               message: "Form submitted successfully!",
             });
             setIsSubmiting(false);
-            navigate("/");
+            setConfirmationPage(true);
           } else {
             setSubmitResult({
               state: "error",
@@ -248,6 +250,9 @@ const Question = () => {
     }
   };
 
+  const onClickBackToHome = () => {
+    navigate("/");
+  };
   const onClickNext = () => {
     if (currentPage < radioOptions.length - 1) {
       setCurrentPage(currentPage + 1);
@@ -264,13 +269,22 @@ const Question = () => {
   return (
     <>
       {formPage ? (
-        <LastQuestionComponet
-          onChangeFormData={onChangeFormData}
-          onSubmit={onSubmit}
-          isSubmiting={isSubmiting}
-          submitResult={submitResult}
-          formerrors={formerrors}
-        />
+        confirmationPage ? (
+          <ConfirmationPage
+            mainTitle={
+              "Thanks for trust hiring through bolo before we started we’d like to ask you questions to better understand your bussiness"
+            }
+            onClickNext={onClickBackToHome}
+          />
+        ) : (
+          <LastQuestionComponet
+            onChangeFormData={onChangeFormData}
+            onSubmit={onSubmit}
+            isSubmiting={isSubmiting}
+            submitResult={submitResult}
+            formerrors={formerrors}
+          />
+        )
       ) : (
         <QuestionComponent
           radioOptions={radioOptions[currentPage].radioOptions}
