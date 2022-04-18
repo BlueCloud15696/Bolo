@@ -348,7 +348,7 @@ function Home({ setAuthState, authState, logout }) {
                 developers to your team
               </h1>
               <p>
-                YouTeam helps tech companies extend their engineering teams by
+                Bolo helps tech companies extend their engineering teams by
                 leveraging a network of 20,000+ vetted contractors from hundreds
                 of development agencies across the world.
               </p>
