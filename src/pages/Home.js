@@ -461,7 +461,7 @@ function Home({ setAuthState, authState, logout }) {
                 <img src={featuresIcon1} className="icon-image" alt="" />
               </div>
               <h2>
-                Launch the personalized matching
+                Launc the personalized matching
                 <br />
                 process
               </h2>
