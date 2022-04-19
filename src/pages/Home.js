@@ -345,7 +345,7 @@ function Home({ setAuthState, authState, logout }) {
                   <ScrollingText style={{ display: "inline-block" }} />
                 </span>
                 <br />
-                developers to your team
+                developers editted to your team
               </h1>
               <p>
                 Bolo helps tech companies extend their engineering teams by
