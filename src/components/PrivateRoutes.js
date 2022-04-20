@@ -8,7 +8,7 @@ const PrivateElement = ({ element, requiredRoles }) => {
   const { authState } = useContext(AuthContext);
   let location = useLocation();
   if (!authState) return <p className="container">Checking auth..</p>;
-  const { status, role, email_verified } = authState;
+  const { status, role } = authState;
 
   return status ? (
     /* email_verified ? ( */

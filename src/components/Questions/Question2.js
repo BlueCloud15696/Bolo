@@ -1,6 +1,4 @@
-import { useState } from "react";
 import icon1 from "../../img/logo-only.png";
-import IntlTelInput from "react-bootstrap-intl-tel-input";
 
 const Question = ({
   onChangeFormData,
@@ -19,7 +17,7 @@ const Question = ({
             data-aos="fade-up"
           >
             <div class="icon-main">
-              <img src={icon1} />
+              <img alt="image" src={icon1} />
             </div>
             <p>
               Last please sign up so we can connect with you with the right
@@ -138,7 +136,7 @@ const Question = ({
                   {submitResult.message}
                 </p>
               )}
-              <a onClick={onSubmit} className="btn-next">
+              <a href="#" onClick={onSubmit} className="btn-next">
                 {isSubmiting ? "Form submiting" : "Contact with talent"}
               </a>
             </form>

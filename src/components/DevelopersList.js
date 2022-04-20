@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import dev1 from "../img/developers/dev2.png";
-import { FaStar, FaStarHalfAlt, FaStarHalf } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import axios from "axios";
 import { BASE_URL } from "../constants/constants";
 
@@ -13,6 +12,8 @@ const DevelopersList = () => {
     state: "success",
     message: "",
   });
+  console.log("loading", loading);
+  console.log("loadingStatus", loadingStatus);
   console.log("developers", developers);
   useEffect(() => {
     setLoadingStatus({
@@ -127,7 +128,7 @@ const DevelopersList = () => {
                     <h3>$15/hr</h3>
                   </div>
                   <div className="icon">
-                    <img src={`${BASE_URL}${value.avatar}`} />
+                    <img alt="image" src={`${BASE_URL}${value.avatar}`} />
                   </div>
                   <h3 className="title">{value.name}</h3>
                   <h4 className="sub-title">{value.profession}</h4>

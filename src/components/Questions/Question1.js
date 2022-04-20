@@ -1,4 +1,3 @@
-import { useState } from "react";
 import icon1 from "../../img/logo-only.png";
 
 const Question = ({
@@ -22,7 +21,7 @@ const Question = ({
             data-aos="fade-up"
           >
             <div class="icon-main">
-              <img src={icon1} />
+              <img alt="image" src={icon1} />
             </div>
             <p>{mainTitle}</p>
             <div
@@ -62,12 +61,12 @@ const Question = ({
             <hr />
             <div className="d-flex justify-content-center justify-content-lg-start align-self-end button-wrapper">
               {prviousLabel && prviousLabel !== "" && (
-                <a onClick={onClickPrev} className="btn-prev">
+                <a href="#" onClick={onClickPrev} className="btn-prev">
                   {prviousLabel}
                 </a>
               )}
               {nextLabel && nextLabel !== "" && (
-                <a onClick={onClickNext} className="btn-next">
+                <a href="#" onClick={onClickNext} className="btn-next">
                   {nextLabel}
                 </a>
               )}
