@@ -30,7 +30,7 @@ import UserListHead from "./TableHeader";
 import axios from "axios";
 import { BASE_URL } from "../constants/constants";
 import AddDeveloperForm from "./forms/AddDeveloperForm";
-import { styled } from "@mui/material/styles";
+
 //import { AuthContext } from "../helpers/AuthContext";
 // ----------------------------------------------------------------------
 
@@ -84,7 +84,7 @@ const TABLE_HEAD = [
     label: "Actions",
   },
 ];
-const months = [
+/* const months = [
   "January",
   "February",
   "March",
@@ -97,7 +97,7 @@ const months = [
   "October",
   "November",
   "December",
-];
+]; */
 
 // ----------------------------------------------------------------------
 
@@ -140,7 +140,7 @@ export default function User() {
   const [order, setOrder] = useState("asc");
   const [selected, setSelected] = useState([]);
   const [orderBy, setOrderBy] = useState("name");
-  const [filterName, setFilterName] = useState("");
+  /* const [filterName, setFilterName] = useState(""); */
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const [isDeleting, setIsDeleting] = useState(false);
@@ -279,7 +279,7 @@ export default function User() {
   const filteredUsers = applySortFilter(
     USERLIST,
     getComparator(order, orderBy),
-    filterName
+    /* filterName */""
   );
 
   const dataParse = (result) => {

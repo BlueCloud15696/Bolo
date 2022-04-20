@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
 import {
-  Navbar,  
+  Navbar,
   NavbarToggler,
   Collapse,
   Nav,
   NavItem,
-  NavLink,  
+  NavLink,
   NavbarText,
 } from "reactstrap";
 import { AuthContext } from "../auth-context";

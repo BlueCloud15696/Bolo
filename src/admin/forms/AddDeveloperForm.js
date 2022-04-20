@@ -114,7 +114,7 @@ export default function RegisterForm({
       formData.append("description", finalValues.description);
       finalValues.languages.map((language) => {
         formData.append("languages", language);
-        return;
+        return true;
       });
       formData.append("experienceYear", finalValues.experienceYear);
       formData.append("rate", finalValues.rate);
@@ -175,6 +175,7 @@ export default function RegisterForm({
     formData.append("description", finalValues.description);
     finalValues.languages.map((language) => {
       formData.append("languages", language);
+      return true;
     });
     formData.append("experienceYear", finalValues.experienceYear);
     formData.append("rate", finalValues.rate);
