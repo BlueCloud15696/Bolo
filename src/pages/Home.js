@@ -7,7 +7,6 @@ import image2 from "../illustration/01_illustrarions/03.svg";
 import image3 from "../illustration/01_illustrarions/02bra.svg";
 import image4 from "../illustration/man_image.svg";
 import userSvg from "../svg/User.svg";
-import dev1 from "../img/developers/dev1.png";
 
 // import icons
 import icon1 from "../icons/Bolo-01.svg";
@@ -35,10 +34,9 @@ import {
 
 // import external packages
 import React, { useEffect, useState } from "react";
-import ReactStars from "react-rating-stars-component";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Navigation } from "swiper/core";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 // import components
@@ -60,9 +58,6 @@ import {
   Label,
   Input,
   FormFeedback,
-  Toast,
-  ToastHeader,
-  ToastBody,
 } from "reactstrap";
 
 SwiperCore.use([Pagination, Navigation]);
@@ -86,6 +81,8 @@ function Home({ setAuthState, authState, logout }) {
     state: "success",
     message: "",
   });
+  console.log("loading", loading);
+  console.log("loadingStatus", loadingStatus);
   console.log("developers", developers);
   useEffect(() => {
     setLoadingStatus({
@@ -265,7 +262,7 @@ function Home({ setAuthState, authState, logout }) {
           className="container d-flex justify-content-between align-items-center"
         >
           <div className="logo">
-            <img src={logo} />
+            <img alt="some" src={logo} />
           </div>
 
           <nav id="navbar" className="navbar">
@@ -574,7 +571,7 @@ function Home({ setAuthState, authState, logout }) {
                     data-aos-delay="100"
                   >
                     <div class="icon" id="dark-icon">
-                      <img src={whyBoloIcon1} />
+                      <img alt="some" src={whyBoloIcon1} />
                     </div>
                     <h4>Time-to-contract 1 week</h4>
                     <p>
@@ -588,7 +585,7 @@ function Home({ setAuthState, authState, logout }) {
                     data-aos-delay="200"
                   >
                     <div class="icon" id="light-icon">
-                      <img src={whyBoloIcon2} />
+                      <img alt="some" src={whyBoloIcon2} />
                     </div>
                     <h4>Flexible, efficient scaling</h4>
                     <p>Expand or reduce your remote team size on demand.</p>
@@ -599,7 +596,7 @@ function Home({ setAuthState, authState, logout }) {
                     data-aos-delay="300"
                   >
                     <div class="icon" id="dark-icon">
-                      <img src={whyBoloIcon3} />
+                      <img alt="some" src={whyBoloIcon3} />
                     </div>
                     <h4>20,000+ engineers</h4>
                     <p>
@@ -613,7 +610,7 @@ function Home({ setAuthState, authState, logout }) {
                     data-aos-delay="400"
                   >
                     <div class="icon" id="light-icon">
-                      <img src={whyBoloIcon4} />
+                      <img alt="some" src={whyBoloIcon4} />
                     </div>
                     <h4>Dedicated support</h4>
                     <p>Get a personal Customer Success Specialist.</p>
@@ -624,7 +621,7 @@ function Home({ setAuthState, authState, logout }) {
                     data-aos-delay="300"
                   >
                     <div class="icon" id="light-dark-icon">
-                      <img src={whyBoloIcon5} />
+                      <img alt="some" src={whyBoloIcon5} />
                     </div>
                     <h4>Vetted talent</h4>
                     <p>
@@ -638,7 +635,7 @@ function Home({ setAuthState, authState, logout }) {
                     data-aos-delay="400"
                   >
                     <div class="icon" id="light-icon">
-                      <img src={whyBoloIcon6} />
+                      <img alt="some" src={whyBoloIcon6} />
                     </div>
                     <h4>Long-term predictability</h4>
                     <p>YouTeam’s average engagement duration is 2 years.</p>
@@ -653,7 +650,7 @@ function Home({ setAuthState, authState, logout }) {
             >
               <div className="content d-flex flex-column justify-content-center">
                 <div class="icon-main">
-                  <img src={icon1} />
+                  <img alt="some" src={icon1} />
                 </div>
                 <h3>Why Bolo ?</h3>
                 <p>
@@ -791,7 +788,7 @@ function Home({ setAuthState, authState, logout }) {
             <div className="row">
               <div className="col-lg-5 col-md-6 footer-info">
                 <div className="logo">
-                  <img src={logo} />
+                  <img alt="some" src={logo} />
                 </div>
                 <p>
                   It is a long established fact that a reader will be distracted

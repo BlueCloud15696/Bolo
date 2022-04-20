@@ -40,7 +40,7 @@ const TalentPool = () => {
           className="container d-flex justify-content-between align-items-center"
         >
           <div className="logo">
-            <img alt="image" src={logo} />
+            <img alt="some" src={logo} />
           </div>
 
           <nav id="navbar" className="navbar">
@@ -119,7 +119,7 @@ const TalentPool = () => {
               data-aos="zoom-in"
               data-aos-delay="200"
             >
-              <img src={hero} className="img-fluid animated" alt="image" />
+              <img src={hero} className="img-fluid animated" alt="some" />
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@ const TalentPool = () => {
             <div className="row">
               <div className="col-lg-5 col-md-6 footer-info">
                 <div className="logo">
-                  <img alt="image" src={logo} />
+                  <img alt="some" src={logo} />
                 </div>
                 <p>
                   It is a long established fact that a reader will be distracted
