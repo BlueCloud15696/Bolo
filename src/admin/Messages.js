@@ -1,14 +1,11 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import { filter } from "lodash";
 import { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
 // material
 import {
   Box,
   Link,
   Card,
-  CardHeader,
-  CardContent,
   Table,
   Stack,
   Avatar,
@@ -34,7 +31,7 @@ import UserListHead from "./TableHeader";
 import axios from "axios";
 import { BASE_URL } from "../constants/constants";
 import MainCard from "../components/MainCard";
-import { alpha, styled } from "@mui/material/styles";
+import {  styled } from "@mui/material/styles";
 //import { AuthContext } from "../helpers/AuthContext";
 import AnswersList from "./AnswersList";
 // ----------------------------------------------------------------------
@@ -198,33 +195,7 @@ export default function User() {
         setIsDeleting(false);
       });
   };
-
-  const [addResult, setAddResult] = useState({
-    state: "success",
-    message: "",
-  });
-  const [openAddModal, setOpenAddModal] = useState(false);
-  const handleCloseAddModal = () => {
-    setOpenAddModal(false);
-    setSelectedMessage(null);
-  };
-  const onAddTeams = (message) => {
-    setSelectedMessage(message);
-    setAddResult({
-      state: "success",
-      message: "",
-    });
-    setOpenAddModal(true);
-  };
-  const onAddTeamSuccess = () => {
-    setOpenAddModal(false);
-    setApiData({
-      state: "success",
-      message: "",
-      data: null,
-    });
-    loadData();
-  };
+  
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -263,9 +234,9 @@ export default function User() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  const handleFilterByName = (event) => {
+  /* const handleFilterByName = (event) => {
     setFilterName(event.target.value);
-  };
+  }; */
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USERLIST.length) : 0;
@@ -275,19 +246,7 @@ export default function User() {
     getComparator(order, orderBy),
     filterName
   );
-
-  const formatDate = (date) => {
-    console.log("date", date);
-    const classified = date.split("T", 2);
-    const datePart = classified[0].split("-", 3);
-    const timePart = classified[1].split(":", 3);
-
-    const currentYear = datePart[0];
-    const currentMonth = datePart[1];
-    const currentDay = datePart[2];
-
-    return `${currentDay} ${months[Number(currentMonth) - 1]} ${currentYear}`;
-  };
+  
   const dataParse = (result) => {
     const emails = result.map((value, index) => ({
       id: value._id,
@@ -353,7 +312,7 @@ export default function User() {
   };
   useEffect(() => {
     loadData();
-  }, []);
+  });
 
   //const { authState } = useContext(AuthContext);
   return apiData.data ? (

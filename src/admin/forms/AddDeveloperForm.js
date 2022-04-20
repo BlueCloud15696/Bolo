@@ -16,7 +16,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
 } from "@mui/material";
 import axios from "axios";
@@ -100,7 +99,6 @@ export default function RegisterForm({
     setFieldValue,
     values,
   } = formik;
-  const packageImg = "";
 
   const onAddDeveloper = (finalValues, setIsSubmitting) => {
     setAddResult({ state: "success", message: "" });
@@ -116,6 +114,7 @@ export default function RegisterForm({
       formData.append("description", finalValues.description);
       finalValues.languages.map((language) => {
         formData.append("languages", language);
+        return;
       });
       formData.append("experienceYear", finalValues.experienceYear);
       formData.append("rate", finalValues.rate);
@@ -159,7 +158,7 @@ export default function RegisterForm({
       setIsSubmitting(false);
     }
   };
-  
+
   const onEditDeveloper = (finalValues, setIsSubmitting) => {
     setAddResult({ state: "success", message: "" });
     setIsSubmitting(true);
@@ -387,7 +386,7 @@ export default function RegisterForm({
               </Button>
               <Button
                 type="submit"
-                variant="contained"                
+                variant="contained"
                 disabled={isDisabled}
                 onClick={handleSubmit}
                 autoFocus

@@ -1,17 +1,12 @@
 import React, { useState, useContext } from "react";
 
 import {
-  Navbar,
-  NavbarBrand,
+  Navbar,  
   NavbarToggler,
   Collapse,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
+  NavLink,  
   NavbarText,
 } from "reactstrap";
 import { AuthContext } from "../auth-context";
@@ -21,8 +16,8 @@ const NavbarComponent = () => {
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const [collapse, setCollapse] = useState(false);
-  const bgBlack = { backgroundColor: "#000000", color: "#f4f4f4" };
+  /* const [collapse, setCollapse] = useState(false);
+  const bgBlack = { backgroundColor: "#000000", color: "#f4f4f4" }; */
 
   const onClickLogout = () => {
     logout();

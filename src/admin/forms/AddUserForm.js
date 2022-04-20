@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import * as Yup from "yup";
 
 import { useFormik, Form, FormikProvider } from "formik";
@@ -7,7 +7,6 @@ import {
   Stack,
   TextField,
   Select,
-  OutlinedInput,
   FormControl,
   MenuItem,
   InputLabel,
@@ -16,13 +15,11 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
 } from "@mui/material";
 //import { LoadingButton } from "@mui/lab";
 import axios from "axios";
 import { BASE_URL } from "../../constants/constants";
-import { FileUploader } from "react-drag-drop-files";
 
 export default function RegisterForm({
   addResult,
@@ -298,7 +295,7 @@ export default function RegisterForm({
               </Button>
               <Button
                 type="submit"
-                variant="contained"                
+                variant="contained"
                 disabled={isDisabled}
                 onClick={handleSubmit}
                 autoFocus
