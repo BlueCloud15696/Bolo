@@ -2,28 +2,6 @@
 import logo from "../img/logo.png";
 //import hero from "./illustration/01_illustrarions/world web.svg";
 import hero from "../img/hero_image2.png";
-import image1 from "../illustration/01_illustrarions/01bra.svg";
-import image2 from "../illustration/01_illustrarions/03.svg";
-import image3 from "../illustration/01_illustrarions/02bra.svg";
-import image4 from "../illustration/man_image.svg";
-import userSvg from "../svg/User.svg";
-import dev1 from "../img/developers/dev1.png";
-
-// import icons
-import icon1 from "../icons/Bolo-01.svg";
-import whyBoloIcon1 from "../icons/Why-bolo-icon-1.png";
-import whyBoloIcon2 from "../icons/Why-bolo-icon-2.png";
-import whyBoloIcon3 from "../icons/Why-bolo-icon-3.png";
-import whyBoloIcon4 from "../icons/Why-bolo-icon-4.png";
-import whyBoloIcon5 from "../icons/Why-bolo-icon-5.png";
-import whyBoloIcon6 from "../icons/Why-bolo-icon-6.png";
-
-import webTechIcon1 from "../icons/web-tech-icon-1.png";
-import featuresIcon1 from "../icons/features-icon-1.png";
-import featuresIcon2 from "../icons/features-icon-2.png";
-import featuresIcon3 from "../icons/features-icon-3.png";
-import startYourPlaneIcon from "../icons/start-your-plan-icon.png";
-
 import { BiListUl } from "react-icons/bi";
 import {
   FaTwitter,
@@ -35,14 +13,7 @@ import {
 
 // import external packages
 import React, { useEffect, useState } from "react";
-import ReactStars from "react-rating-stars-component";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, Navigation } from "swiper/core";
-import { Link, Outlet } from "react-router-dom";
-
-// import components
-import { DeveloperCard } from "../components/DevelopersCard";
-import { ScrollingText } from "../components/ScrollingText";
+import { Link } from "react-router-dom";
 
 import DevelopersList from "../components/DevelopersList";
 const TalentPool = () => {
@@ -69,7 +40,7 @@ const TalentPool = () => {
           className="container d-flex justify-content-between align-items-center"
         >
           <div className="logo">
-            <img src={logo} />
+            <img alt="image" src={logo} />
           </div>
 
           <nav id="navbar" className="navbar">
@@ -148,7 +119,7 @@ const TalentPool = () => {
               data-aos="zoom-in"
               data-aos-delay="200"
             >
-              <img src={hero} className="img-fluid animated" alt="" />
+              <img src={hero} className="img-fluid animated" alt="image" />
             </div>
           </div>
         </div>
@@ -165,7 +136,7 @@ const TalentPool = () => {
             <div className="row">
               <div className="col-lg-5 col-md-6 footer-info">
                 <div className="logo">
-                  <img src={logo} />
+                  <img alt="image" src={logo} />
                 </div>
                 <p>
                   It is a long established fact that a reader will be distracted
