@@ -82,7 +82,7 @@ function App() {
 
   useEffect(() => {
     checkAuth();
-  });
+  },[]);
 
   const logout = () => {
     localStorage.removeItem("accessTokenBolo");

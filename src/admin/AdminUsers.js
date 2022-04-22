@@ -332,7 +332,7 @@ export default function User() {
   };
   useEffect(() => {
     loadData();
-  });
+  },[]);
 
   //const { authState } = useContext(AuthContext);
   return apiData.data ? (
