@@ -787,9 +787,7 @@ function Home({ setAuthState, authState, logout }) {
                   <img alt="some" src={logo} />
                 </div>
                 <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that.
+                YouTeam handpicks the best-matched candidates from its pool of over 20,000 engineers, conducts personalized pre-screening, then arranges interviews for you.
                 </p>
                 <div className="social-links mt-3">
                   <FaFacebookF color="#1e4356" className="social-icons" />
