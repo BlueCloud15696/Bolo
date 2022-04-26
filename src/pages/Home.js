@@ -346,7 +346,7 @@ function Home({ setAuthState, authState, logout }) {
               </h1>
               <p>
                 Bolo helps tech companies extend their engineering teams by
-                leveraging a network of 20,000+ vetted contractors from hundreds
+                leveraging a network of 1000+ vetted contractors from hundreds
                 of development agencies across the world.
               </p>
               <div className="d-flex justify-content-center justify-content-lg-start">
@@ -378,7 +378,7 @@ function Home({ setAuthState, authState, logout }) {
             >
               <h2>Search best developers</h2>
               <p id="title-p">
-                Get access to 20,000+ vetted engineers arround world and join to
+                Get access to 1000+ vetted engineers arround world and join to
                 your team.
               </p>
             </div>
@@ -458,14 +458,14 @@ function Home({ setAuthState, authState, logout }) {
                 <img src={featuresIcon1} className="icon-image" alt="" />
               </div>
               <h2>
-                Launc the personalized matching
+                Launch the personalized matching
                 <br />
                 process
               </h2>
               <p>
                 Set up a free intro call with our Team Advisor—your
                 <br />
-                personal contact at YouTeam. They'll ensure the talent
+                personal contact at Bolo. They'll ensure the talent
                 <br /> we source perfectly matches your needs.
               </p>
 
@@ -500,9 +500,9 @@ function Home({ setAuthState, authState, logout }) {
                 candidates
               </h2>
               <p>
-                YouTeam handpicks the best-matched candidates
+                Bolo handpicks the best-matched candidates
                 <br />
-                from its pool of over 20,000 engineers, conducts
+                from its pool of over 1000 engineers, conducts
                 <br />
                 personalized pre-screening, then arranges interviews
                 <br /> for you.
@@ -535,7 +535,7 @@ function Home({ setAuthState, authState, logout }) {
               </div>
               <h2>Get work started with confidence</h2>
               <p>
-                YouTeam automates contract signing and invoicing for
+                Bolo automates contract signing and invoicing for
                 <br />
                 you and the development companies, employers of
                 <br />
@@ -575,7 +575,7 @@ function Home({ setAuthState, authState, logout }) {
                     </div>
                     <h4>Time-to-contract 1 week</h4>
                     <p>
-                      With YouTeam, there's no need to slow down for
+                      With Bolo, there's no need to slow down for
                       recruitment.
                     </p>
                   </div>
@@ -598,7 +598,7 @@ function Home({ setAuthState, authState, logout }) {
                     <div class="icon" id="dark-icon">
                       <img alt="some" src={whyBoloIcon3} />
                     </div>
-                    <h4>20,000+ engineers</h4>
+                    <h4>1000+ engineers</h4>
                     <p>
                       Get access to vetted experts in web, mobile, Big Data, ML,
                       IoT
@@ -638,7 +638,7 @@ function Home({ setAuthState, authState, logout }) {
                       <img alt="some" src={whyBoloIcon6} />
                     </div>
                     <h4>Long-term predictability</h4>
-                    <p>YouTeam’s average engagement duration is 2 years.</p>
+                    <p>Bolo’s average engagement duration is 2 years.</p>
                   </div>
                 </div>
               </div>
@@ -680,8 +680,7 @@ function Home({ setAuthState, authState, logout }) {
                 developers.
               </h2>
               <p>
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
+                From React to Angular, we have Sr level experts in our network ready to start up with your modern webapp in no time.
               </p>
 
               <div className="d-flex justify-content-center justify-content-lg-start">
@@ -721,10 +720,7 @@ function Home({ setAuthState, authState, logout }) {
                 Get work started with confidence
               </h2>
               <p>
-                “This theme aute irure dolor in reprehe erit in voluptate velit
-                esse cillum dolore eu fugiat nulla pariatur. Excepteur for the
-                life sint occaecat cupidatat non proident, sunt in culpa qui
-                officia de est laborum.”
+              Bolo automates contract signing and invoicing for you and the development companies, employers of your selected engineers. No commitments before this point.
                 {/*  Sed ut perspiciatis unde omnis iste
                 natus error sit voluptatem accusantium doloremque laudantium,
                 totam rem aperiam, eaque ipsa quae ab illo inventore
@@ -771,7 +767,7 @@ function Home({ setAuthState, authState, logout }) {
                 the matching process.
               </p>
               <a href="#" className="btn-signup-for-free scrollto">
-                Sign Up for Free
+               Start for Free
               </a>
             </div>
           </div>
