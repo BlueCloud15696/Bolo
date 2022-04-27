@@ -654,8 +654,7 @@ function Home({ setAuthState, authState, logout }) {
                 </div>
                 <h3>Why Bolo ?</h3>
                 <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable ayout. The point of using.
+                  From the time to contract to the vetting process , we set ourselves appat.
                 </p>
               </div>
             </div>
@@ -861,7 +860,7 @@ function Home({ setAuthState, authState, logout }) {
         <div id="copyright-container">
           <div className="container">
             <div className="copyright">
-              Copyright &copy; Bolo 2022 Desing by assem elshukfy
+              Copyright &copy; Bolo 2022 
             </div>
           </div>
         </div>
