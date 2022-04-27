@@ -6,10 +6,7 @@ export const ScrollingText = () => {
           <li className="content__container__list__item">3 React JS</li>
           <li className="content__container__list__item">2 Node JS</li>
           <li className="content__container__list__item">3 JQuery</li>
-          <li className="content__container__list__item">2 Javascript</li>
-          <li className="content__container__list__item">3 Next JS</li>
-          <li className="content__container__list__item">2 Javascript</li>
-          <li className="content__container__list__item">1 Blockchain</li>
+          <li className="content__container__list__item">4 Javascript</li>
         </ul>
       </div>
     </div>
