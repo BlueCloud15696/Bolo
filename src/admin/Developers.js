@@ -408,7 +408,8 @@ export default function User() {
                           >
                             <Avatar
                               alt={row.name}
-                              src={`${BASE_URL}${row.avatar}`}
+                              /* src={`${BASE_URL}${row.avatar}`} */
+                              src={`${row.avatar}`}
                             />
                             <Typography variant="subtitle2" noWrap>
                               {row.name}

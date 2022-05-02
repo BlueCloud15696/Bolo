@@ -428,7 +428,8 @@ function Home({ setAuthState, authState, logout }) {
               return (
                 <SwiperSlide>
                   <DeveloperCard
-                    avatar={`${BASE_URL}${value.avatar}`}
+                    /* avatar={`${BASE_URL}${value.avatar}`} */
+                    avatar={`${value.avatar}`}
                     name={value.name}
                     field={value.profession}
                     rating={value.rating}
@@ -575,8 +576,7 @@ function Home({ setAuthState, authState, logout }) {
                     </div>
                     <h4>Time-to-contract 1 week</h4>
                     <p>
-                      With Bolo, there's no need to slow down for
-                      recruitment.
+                      With Bolo, there's no need to slow down for recruitment.
                     </p>
                   </div>
                   <div
@@ -654,7 +654,8 @@ function Home({ setAuthState, authState, logout }) {
                 </div>
                 <h3>Why Bolo ?</h3>
                 <p>
-                  From the time to contract to the vetting process , we set ourselves appat.
+                  From the time to contract to the vetting process , we set
+                  ourselves appat.
                 </p>
               </div>
             </div>
@@ -679,7 +680,8 @@ function Home({ setAuthState, authState, logout }) {
                 developers.
               </h2>
               <p>
-                From React to Angular, we have Sr level experts in our network ready to start up with your modern webapp in no time.
+                From React to Angular, we have Sr level experts in our network
+                ready to start up with your modern webapp in no time.
               </p>
 
               <div className="d-flex justify-content-center justify-content-lg-start">
@@ -719,7 +721,9 @@ function Home({ setAuthState, authState, logout }) {
                 Get work started with confidence
               </h2>
               <p>
-              Bolo automates contract signing and invoicing for you and the development companies, employers of your selected engineers. No commitments before this point.
+                Bolo automates contract signing and invoicing for you and the
+                development companies, employers of your selected engineers. No
+                commitments before this point.
                 {/*  Sed ut perspiciatis unde omnis iste
                 natus error sit voluptatem accusantium doloremque laudantium,
                 totam rem aperiam, eaque ipsa quae ab illo inventore
@@ -766,7 +770,7 @@ function Home({ setAuthState, authState, logout }) {
                 the matching process.
               </p>
               <a href="#" className="btn-signup-for-free scrollto">
-               Start for Free
+                Start for Free
               </a>
             </div>
           </div>
@@ -786,7 +790,9 @@ function Home({ setAuthState, authState, logout }) {
                   <img alt="some" src={logo} />
                 </div>
                 <p>
-                YouTeam handpicks the best-matched candidates from its pool of over 20,000 engineers, conducts personalized pre-screening, then arranges interviews for you.
+                  YouTeam handpicks the best-matched candidates from its pool of
+                  over 20,000 engineers, conducts personalized pre-screening,
+                  then arranges interviews for you.
                 </p>
                 <div className="social-links mt-3">
                   <FaFacebookF color="#1e4356" className="social-icons" />
@@ -859,9 +865,7 @@ function Home({ setAuthState, authState, logout }) {
 
         <div id="copyright-container">
           <div className="container">
-            <div className="copyright">
-              Copyright &copy; Bolo 2022 
-            </div>
+            <div className="copyright">Copyright &copy; Bolo 2022</div>
           </div>
         </div>
       </footer>

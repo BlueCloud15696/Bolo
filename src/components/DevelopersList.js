@@ -128,7 +128,11 @@ const DevelopersList = () => {
                     <h3>$15/hr</h3>
                   </div>
                   <div className="icon">
-                    <img alt="image" src={`${BASE_URL}${value.avatar}`} />
+                    <img
+                      alt="image"
+                      /* src={`${BASE_URL}${value.avatar}`} */
+                      src={`${value.avatar}`}
+                    />
                   </div>
                   <h3 className="title">{value.name}</h3>
                   <h4 className="sub-title">{value.profession}</h4>
