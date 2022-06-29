@@ -334,7 +334,7 @@ function Home({ setAuthState, authState, logout }) {
               data-aos-delay="200"
             >
               <h1>
-                Instantly add
+                Instantly add test
                 <span
                   className="purple-word"
                   style={{ display: "inline-block" }}
