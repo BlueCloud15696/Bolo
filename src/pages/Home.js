@@ -334,7 +334,7 @@ function Home({ setAuthState, authState, logout }) {
               data-aos-delay="200"
             >
               <h1>
-                Instantly add test
+                Instantly add
                 <span
                   className="purple-word"
                   style={{ display: "inline-block" }}
@@ -368,83 +368,7 @@ function Home({ setAuthState, authState, logout }) {
           </div>
         </div>
       </section>
-      <section className="developers pl-4">
-        <div id="navbar-container" className="container">
-          <div className="row justify-content-center">
-            <div
-              className="col-lg-6 col-12 d-flex flex-column justify-content-center pt-4 pt-lg-5"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <h2>Search best developers</h2>
-              <p id="title-p">
-                Get access to 1000+ vetted engineers arround world and join to
-                your team.
-              </p>
-            </div>
-            <div
-              className="col-lg-6 col-4 hero-img"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
-              {/* <img src={hero} className="img-fluid animated" alt="" /> */}
-            </div>
-          </div>
-        </div>
-        <Swiper
-          /* style={{ paddingLeft: "40px" }} */
-          className="slider"
-          spaceBetween={20}
-          //slidesPerView={"auto"}
-          //navigation={true}
-          //pagination={{ clickable: true }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 1,
-              spaceBetween: 40,
-            },
-            991: {
-              slidesPerView: 2,
-              spaceBetween: 30,
-            },
-            1024: {
-              slidesPerView: 2,
-              spaceBetween: 30,
-            },
-            1300: {
-              slidesPerView: 2.5,
-              spaceBetween: 30,
-            },
-          }}
-        >
-          {developers &&
-            /* [0, 2, 3, 4, 3, 5, 4] */ developers.docs.map((value) => {
-              return (
-                <SwiperSlide>
-                  <DeveloperCard
-                    /* avatar={`${BASE_URL}${value.avatar}`} */
-                    avatar={`${value.avatar}`}
-                    name={value.name}
-                    field={value.profession}
-                    rating={value.rating}
-                    description={value.description}
-                    experienceYear={value.experienceYear}
-                    field2="Experience Years"
-                    langueges={value.languages.map((languege) => {
-                      return { name: languege };
-                    })}
-                  />
-                </SwiperSlide>
-              );
-            })}
-        </Swiper>
-      </section>
+      
       <section className="features">
         <div id="navbar-container" className="container">
           <div
